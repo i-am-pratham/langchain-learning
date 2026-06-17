@@ -1,0 +1,16 @@
+from langchain_community.document_loaders import PyPDFLoader,PyMuPDFLoader
+
+loader=PyMuPDFLoader("Sample.pdf")
+docs= loader.load()
+print(docs[1].page_content)
+print("-----------------------------------------------------")
+print(docs[1].metadata)
+print("-----------------------------------------------------")
+print("=== PDF SUMMARY ===")
+print(f'Total pages:{len(docs)}')
+print("-----------------------------------------------------")
+print(f'First page preview: \n\n {docs[0].page_content[0:300]}')
+print("-----------------------------------------------------")
+print(f'metadata of first page: \n\n {docs[0].metadata}')
+print("-----------------------------------------------------")
+print(f'metadata of last page:\n\n  {docs[len(docs)-1].metadata}')
